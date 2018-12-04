@@ -1,0 +1,2 @@
+# gmf-runtime
+The GMF Runtime is an industry proven application framework for creating graphical editors using EMF and GEF.   The GMF Runtime provides many features that one would have to code by hand if using EMF and GMF directly.   GMF is founded by Eclipse foundation, Samsung add features as needed.
