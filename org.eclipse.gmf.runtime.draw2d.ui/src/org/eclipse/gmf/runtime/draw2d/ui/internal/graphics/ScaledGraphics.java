@@ -8,6 +8,7 @@
  * Contributors:
  *    IBM Corporation - initial API and implementation
  *    Mariot Chauvin <mariot.chauvin@obeo.fr> - patch 244297
+ *    SAMSUNG - Provide rotate function
  ****************************************************************************/
 package org.eclipse.gmf.runtime.draw2d.ui.internal.graphics;
 
@@ -1070,5 +1071,17 @@ public class ScaledGraphics
 	        }
 	        advancedGraphicsWarningLogged = true;
 	    }
+	}
+	
+	/**
+	*  Provide rotate function
+	*/
+    @Override
+	public void rotate(float degrees) {
+		if (!GCUtilities.supportsAdvancedGraphics()) { 
+	        logAdvancedGraphicsWarning();
+	        return;
+	    }
+		graphics.rotate(degrees);
 	}
 }
