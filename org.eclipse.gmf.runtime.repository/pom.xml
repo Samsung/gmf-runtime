@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd"
+	xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+	<modelVersion>4.0.0</modelVersion>
+	<parent>
+		<groupId>org.eclipse.gmf.runtime</groupId>
+		<artifactId>org.eclipse.gmf.runtime.releng</artifactId>
+		<version>1.10.0-SNAPSHOT</version>
+		<relativePath>../org.eclipse.gmf.runtime.releng/pom.xml</relativePath>
+	</parent>
+	<artifactId>org.eclipse.gmf.runtime.repository</artifactId>
+	<version>1.10.0-SNAPSHOT</version>
+	<packaging>eclipse-repository</packaging>
+
+	<profiles>
+		<profile>
+			<id>hudson.eclipse.org</id>
+			<build>
+				<plugins>
+					<plugin>
+						<groupId>org.eclipse.cbi.maven.plugins</groupId>
+						<artifactId>eclipse-jarsigner-plugin</artifactId>
+						<version>${cbi-plugins.version}</version>
+						<executions>
+							<execution>
+								<id>sign</id>
+								<phase>verify</phase>
+								<goals>
+									<goal>sign</goal>
+								</goals>
+							</execution>
+						</executions>
+					</plugin>
+				</plugins>
+			</build>
+			<pluginRepositories>
+				<pluginRepository>
+					<id>maven.eclipse.org</id>
+					<url>http://maven.eclipse.org/nexus/content/groups/public/</url>
+				</pluginRepository>
+			</pluginRepositories>
+		</profile>
+	</profiles>
+	
+	<pluginRepositories>
+		<pluginRepository>
+			<id>CBI</id>
+			<url>https://repo.eclipse.org/content/repositories/cbi-releases/</url>
+		</pluginRepository>
+	</pluginRepositories>
+		
+	<groupId>org.eclipse.gmf.runtime</groupId>
+</project>
